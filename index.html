@@ -5,7 +5,6 @@
 
 
 <style>
-
 /*
  * style based on http://js13kgames.com/entries/lost-in-cyberspace
  */
@@ -38,7 +37,6 @@
   50% { color: #66aa66; }
   100% { color: #66ff66; }
 }
-
 
 /* based on
 https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
@@ -89,11 +87,8 @@ https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
       inset 0 3px 8px rgba(64,64,64,0.05),
       inset 0 -5px 10px rgba(25,25,25,0.1);
 }
-
-
 </style>
 </head>
-
 
 <body>
 
@@ -104,10 +99,12 @@ https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
 
 #include &lt;iostream&gt;
 int main() {
-  cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+  std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
 }
-  
-<span class="cursor"> </span> 
+
+$ g++ hello.cpp -o hello; ./hello
+Hello, World!
+$ <span class="cursor"> </span> 
 </pre>
 
 
