@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+<style>
+/* renders a mono spaced font area with code formatting 
+   and flickering text in green
+*/
+pre { 
+  margin: 0;
+  background-color: #000;
+  padding: 12px;
+  /*font-family: 'Consolas';*/
+  font-size: 16px;
+  font-weight: 100;
+  color: #66ff66;
+  /*width: 400px; */
+  /*height: 250px; */
+  animation: font-refresh-flicker 9ms infinite;
+}
+.cursor {
+  width: 6px;
+  height: 15px;
+  display: inline-block;
+  animation: cursor-blink 639ms infinite;
+}
+
+@keyframes cursor-blink {
+  50% { background-color: #66ff66; }
+}
+
+@keyframes font-refresh-flicker {
+  0% { color: #66ff66; }
+  50% { color: #66aa66; }
+  100% { color: #66ff66; }
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+
+<pre>
+// Flickering Terminal Text
+// ------------------------
+
+#include &lt;iostream&gt;
+int main() {
+  cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+}
+
+<span class="cursor"></span> 
+</pre>
+
+
+</body>
+</html>
