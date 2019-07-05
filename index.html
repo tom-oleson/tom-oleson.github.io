@@ -7,12 +7,17 @@
 <style>
 
 /*
- * style based on http://js13kgames.com/entries/lost-in-cyberspace
+ style based on http://js13kgames.com/entries/lost-in-cyberspace
+
+
+ a multi-line typers:
+  https://jsfiddle.net/hjwp/514cLzxn/
+  https://www.codeply.com/go/9BM4CF5m1m
  */
 
 .cursor {
-  width: 6px;
-  height: 15px;
+  width: 8px;
+  height: 18px;
   display: inline-block;
   animation: cursor-blink 639ms infinite;
 }
@@ -24,7 +29,7 @@
   margin: 0;
   background-color: rgba(0,0,0,.88);
   padding: 12px;
-  /*font-family: 'Consolas';*/
+  font-family: monospace;
   font-size: 16px;
   font-weight: 100;
   color: #66ff66;
@@ -39,9 +44,10 @@
   100% { color: #66ff66; }
 }
 
-
 /* based on
 https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
+renders burned-in scan lines and a moving scan line that slides from 
+top to bottom forever.
 */
 .scanlines {
     top: 0;
@@ -94,7 +100,6 @@ https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
 </style>
 </head>
 
-
 <body>
 
 <pre id="term" class="scanlines">
@@ -104,13 +109,40 @@ https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
 
 #include &lt;iostream&gt;
 int main() {
-  cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+  std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
 }
-  
-<span class="cursor"> </span> 
+$ <span class="tty" txt="g++ hello.cpp -o hello; ./hello"></span><span class="cursor"> </span>
 </pre>
 
+<script type="text/javascript">
+/*  
+javascript typer
+*/
+var x = document.getElementsByClassName("tty")[0];
+var a = x.getAttribute("txt");
+//console.log(x);
+//console.log(a);
+type();
 
+var i = 0;
+var delay = 120;
+var clock;
+
+function type() {
+  if(i < a.length) {
+    x.innerHTML += a.charAt(i++);
+    clock = setTimeout(type, delay);
+  } else {
+    clearTimeout(clock);
+    clock = setTimeout(type, delay * 20);
+    x.innerHTML = "";
+    i = 0;
+  }
+}
+
+// find the txt attribute
+
+</script>
 
 </body>
 </html>
