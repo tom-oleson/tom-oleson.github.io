@@ -40,7 +40,9 @@
 
 @keyframes font-refresh-flicker {
   0% { color: #66ff66; }
-  50% { color: #66aa66; }
+  25% { color: #66ff66; }
+  50% { color: #66cd66; }   /* flicker */
+  75% { color: #66ff66; }
   100% { color: #66ff66; }
 }
 
@@ -116,56 +118,51 @@ int main() {
 
 <script type="text/javascript">
 /*  
-javascript typer
+javascript tty simulation
 */
+// get the tty element. this is where we will inject typed
+// characters
 var x = document.getElementsByClassName("tty")[0];
-//var a = x.getAttribute("txt");
-//console.log(x);
-//console.log(a);
 
 var data = [
- {text: "g++ hello.cpp -o hello; ./hello", delay: 120 },
- {text: "Hello World!", delay: 1 },
+ {text: "g++ hello.cpp -o hello; ./hello", delay: 144 },
+ {text: "Hello, World!", delay: 1 },
+ {text: "$ ", delay: 1}
 ]
 
-console.log(data);
+var i = 0, j = 0;
+var str, clock, delay;
 
-var i = 0, j = 0, loop = 0;
-//var delay = 120;
-var clock, delay, loop;
-var a, delay;
-
+// kick start typing
 type();
 
+// type each line in the data array using a callback loop until done...
 function type() {
   
-  if(loop == 2) {
+  if(j >= data.length) {
     clearTimeout(clock);
     return;
   }
 
-  if(i == 0) x.innerHTML += "</br>$ "; // new line...
+  if(i == 0 && j > 0) x.innerHTML += "</br>"; // new line...
 
   if(j < data.length) {
     delay = data[j].delay;  
-    a = data[j].text;
+    str = data[j].text;
   } else {
     i = 0, j = 0; loop++;
     clock = setTimeout(type, 3000);
     return;
   }
 
-  if(i < a.length) {
-    x.innerHTML += a.charAt(i++);
+  if(i < str.length) {
+    x.innerHTML += str.charAt(i++);
   } else {
     i = 0; j++; 
   }
 
   clock = setTimeout(type, delay); // async loop
 }
-
-// find the txt attribute
-
 </script>
 
 </body>
