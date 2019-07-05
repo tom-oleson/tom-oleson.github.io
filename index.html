@@ -5,6 +5,7 @@
 
 
 <style>
+
 /*
  style based on http://js13kgames.com/entries/lost-in-cyberspace
 
@@ -94,6 +95,8 @@ top to bottom forever.
       inset 0 3px 8px rgba(64,64,64,0.05),
       inset 0 -5px 10px rgba(25,25,25,0.1);
 }
+
+
 </style>
 </head>
 
@@ -108,7 +111,7 @@ top to bottom forever.
 int main() {
   std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
 }
-$ <span class="tty" txt="g++ hello.cpp -o hello; ./hello"></span><span class="cursor"> </span>
+<span class="tty">$ </span><span class="cursor"> </span>
 </pre>
 
 <script type="text/javascript">
@@ -116,25 +119,49 @@ $ <span class="tty" txt="g++ hello.cpp -o hello; ./hello"></span><span class="cu
 javascript typer
 */
 var x = document.getElementsByClassName("tty")[0];
-var a = x.getAttribute("txt");
+//var a = x.getAttribute("txt");
 //console.log(x);
 //console.log(a);
+
+var data = [
+ {text: "g++ hello.cpp -o hello; ./hello", delay: 120 },
+ {text: "Hello World!", delay: 1 },
+]
+
+console.log(data);
+
+var i = 0, j = 0, loop = 0;
+//var delay = 120;
+var clock, delay, loop;
+var a, delay;
+
 type();
 
-var i = 0;
-var delay = 120;
-var clock;
-
 function type() {
+  
+  if(loop == 2) {
+    clearTimeout(clock);
+    return;
+  }
+
+  if(i == 0) x.innerHTML += "</br>$ "; // new line...
+
+  if(j < data.length) {
+    delay = data[j].delay;  
+    a = data[j].text;
+  } else {
+    i = 0, j = 0; loop++;
+    clock = setTimeout(type, 3000);
+    return;
+  }
+
   if(i < a.length) {
     x.innerHTML += a.charAt(i++);
-    clock = setTimeout(type, delay);
   } else {
-    clearTimeout(clock);
-    clock = setTimeout(type, delay * 20);
-    x.innerHTML = "";
-    i = 0;
+    i = 0; j++; 
   }
+
+  clock = setTimeout(type, delay); // async loop
 }
 
 // find the txt attribute
