@@ -9,7 +9,9 @@
 		<title>@Tom Oleson</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/tty.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/tty.js"></script> <!-- to -->
 	</head>
 	<body class="is-preload">
 
@@ -23,8 +25,33 @@
 				</div>
 			</header>
 
+
+
 		<!-- Main -->
 			<div id="main">
+<section id="zero">
+<!-- to -->
+<pre id="term" class="scanlines">
+#include &lt;iostream&gt;
+int main() {
+  std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+}
+<span class="tty">$ </span><span class="cursor"> </span>
+</pre>
+
+<script type="text/javascript">
+
+var data = [
+ {text: "g++ hello.cpp -o hello; ./hello", delay: 144 },
+ {text: "Hello, World!", delay: 1 },
+ {text: "$ ", delay: 1}
+]
+var x = document.getElementsByClassName("tty")[0];
+
+// kick start typing
+type();
+</script>
+</section>
 
 				<!-- One -->
 					<section id="one">

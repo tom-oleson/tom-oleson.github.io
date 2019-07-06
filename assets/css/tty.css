@@ -7,7 +7,7 @@
 
 .cursor {
   width: 8px;
-  height: 18px;
+  height: 22px;
   display: inline-block;
   animation: cursor-blink 639ms infinite;
 }
@@ -24,7 +24,7 @@
   font-weight: 100;
   color: #66ff66;
   /*width: 400px; */
-  /*height: 250px; */
+  height: 260px; 
   animation: font-refresh-flicker 1ms infinite;
 }
 
@@ -42,8 +42,9 @@ renders burned-in scan lines and a moving scan line that slides from
 top to bottom forever.
 */
 .scanlines {
-    top: 0;
-    left: 0;
+    //top: 0;
+    //left: 0;
+    
     height: 100%;
     width: 100%;
     background: linear-gradient(
@@ -54,7 +55,7 @@ top to bottom forever.
         rgba(0,0,0,.6)
     );
     background-size: 100% .3rem;
-    position: fixed;
+    //position: fixed;
     pointer-events: none;
 }
 .scanlines:before {
