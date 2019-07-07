@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="assets/css/tty.css" />
+	<script src="assets/js/tty.js"></script> <!-- to -->
+</head>
+
+<body>
+
+<pre id="term" class="scanlines">
+#include &lt;iostream&gt;
+int main() {
+  std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+}
+<span class="tty">$ </span><span class="cursor"> </span>
+</pre>
+
+<script type="text/javascript">
+
+var data = [
+ {text: "g++ hello.cpp -o hello; ./hello", delay: 144 },
+ {text: "Hello, World!", delay: 1 },
+ {text: "$ ", delay: 1}
+]
+var x = document.getElementsByClassName("tty")[0];
+
+// kick start typing
+type();
+</script>
+
+
+</body>
+</html>
