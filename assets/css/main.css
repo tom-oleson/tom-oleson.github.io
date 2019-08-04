@@ -3123,7 +3123,7 @@ input, select, textarea {
 		/* Basic */
 
 			h1 {
-				font-size: 1.5em;
+				font-size: 1.75em;
 			}
 
 			h2 {
@@ -3157,7 +3157,7 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				padding: 2.25em 1.5em;
+				padding: 1.5em 1.5em;
 			}
 
 				#header h1 {
@@ -3173,7 +3173,7 @@ input, select, textarea {
 		/* Main */
 
 			#main {
-				padding: 2.25em 1.5em 0.25em 1.5em;
+				padding: 1.75em 1.5em 0.25em 1.5em;
 			}
 
 				#main > section {
