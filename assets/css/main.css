@@ -83,7 +83,9 @@ input, select, textarea {
 	}
 
 	body {
-		background: #000000aa;
+		background: #000000ca;
+		/*background-image: url("../../images/hexagon.jpg");*/
+		/*background-repeat: repeat-x repeat-y;*/
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -98,7 +100,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #cbcbcb;
+		color: #b2b2b2;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
